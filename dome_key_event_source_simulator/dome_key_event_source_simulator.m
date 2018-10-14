@@ -8,10 +8,6 @@
 
 #import "dome_key_event_source_simulator.h"
 
-@implementation dome_key_event_source_simulator
-
-@end
-
 static const size_t key_down_up[][2] = {
     {0xa00, 0xa},  // Down
     {0xb00, 0xb}   // Up
