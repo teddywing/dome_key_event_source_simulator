@@ -27,7 +27,7 @@ void dkess_press_key(int key, NSEventModifierFlags modifier_flags) {
             windowNumber:0
             context:nil
             subtype:NSScreenChangedEventType
-            data1:(NX_KEYTYPE_PLAY << 16) | (key_down_up[i][1] << 8)
+            data1:(key << 16) | (key_down_up[i][1] << 8)
             data2:-1];
 
         CGEventRef cg_event = [event CGEvent];
