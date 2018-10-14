@@ -21,14 +21,14 @@ static const size_t key_down_up[][2] = {
 void dkess_press_key(int key, NSEventModifierFlags modifier_flags) {
     for (int i = 0; i < 2; i++) {
         NSEvent *event = [NSEvent otherEventWithType:NSSystemDefined
-                           location:NSZeroPoint
-                      modifierFlags:key_down_up[i][0]
-                          timestamp:0.0
-                       windowNumber:0
-                            context:nil
-                            subtype:NSScreenChangedEventType
-                              data1:(NX_KEYTYPE_PLAY << 16) | (key_down_up[i][1] << 8)
-                              data2:-1];
+            location:NSZeroPoint
+            modifierFlags:key_down_up[i][0]
+            timestamp:0.0
+            windowNumber:0
+            context:nil
+            subtype:NSScreenChangedEventType
+            data1:(NX_KEYTYPE_PLAY << 16) | (key_down_up[i][1] << 8)
+            data2:-1];
 
         CGEventRef cg_event = [event CGEvent];
         CGEventPost(kCGHIDEventTap, cg_event);
