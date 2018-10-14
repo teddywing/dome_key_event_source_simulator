@@ -12,30 +12,29 @@
 
 @end
 
-void dkess_press_key(int key, NSEventModifierFlags modifier_flags) {
-    NSEvent *event1 = [NSEvent otherEventWithType:NSSystemDefined
-                       location:NSZeroPoint
-                  modifierFlags:0xa00
-                      timestamp:0.0
-                   windowNumber:0
-                        context:nil
-                        subtype:NSScreenChangedEventType
-                          data1:(NX_KEYTYPE_PLAY << 16) | (0xa << 8)
-                          data2:-1];
-    CGEventRef cg_event1 = [event1 CGEvent];
-    CGEventPost(kCGHIDEventTap, cg_event1);
-    CFRelease(cg_event1);
+const int key_down[] = {0xa00, 0xa};
+const int key_up[] = {0xb00, 0xb};
 
-    NSEvent *event2 = [NSEvent otherEventWithType:NSSystemDefined
-                       location:NSZeroPoint
-                  modifierFlags:0xb00
-                      timestamp:0.0
-                   windowNumber:0
-                        context:nil
-                        subtype:NSScreenChangedEventType
-                          data1:(NX_KEYTYPE_PLAY << 16) | (0xb << 8)
-                          data2:-1];
-    CGEventRef cg_event2 = [event2 CGEvent];
-    CGEventPost(kCGHIDEventTap, cg_event2);
-    CFRelease(cg_event2);
+// #define KEY_DOWN {0xa00, 0xa}
+// #define KEY_UP {0xb00, 0xb}
+
+
+void dkess_press_key(int key, NSEventModifierFlags modifier_flags) {
+    const int flags[2][2] = {key_down, key_up};
+
+    for (int i = 0; i < 2; i++) {
+        NSEvent *event = [NSEvent otherEventWithType:NSSystemDefined
+                           location:NSZeroPoint
+                      modifierFlags:flags[i][0]
+                          timestamp:0.0
+                       windowNumber:0
+                            context:nil
+                            subtype:NSScreenChangedEventType
+                              data1:(NX_KEYTYPE_PLAY << 16) | (flags[i][1] << 8)
+                              data2:-1];
+
+        CGEventRef cg_event = [event CGEvent];
+        CGEventPost(kCGHIDEventTap, cg_event);
+        CFRelease(cg_event);
+    }
 }
