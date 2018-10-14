@@ -18,7 +18,7 @@ void dkess_press_key(int key, NSEventModifierFlags modifier_flags) {
     for (int i = 0; i < 2; i++) {
         NSEvent *event = [NSEvent otherEventWithType:NSSystemDefined
             location:NSZeroPoint
-            modifierFlags:key_down_up[i][0]
+            modifierFlags:key_down_up[i][0] | modifier_flags
             timestamp:0.0
             windowNumber:0
             context:nil
