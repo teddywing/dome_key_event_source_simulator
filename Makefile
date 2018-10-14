@@ -6,7 +6,7 @@ build:
 
 test: test.c $(LIB_DEBUG)
 	gcc -g -Wall -Wextra -Werror -ObjC \
-	-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk \
+	-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk \
 	-o $@ \
 	$< \
 	$(LIB_DEBUG)
