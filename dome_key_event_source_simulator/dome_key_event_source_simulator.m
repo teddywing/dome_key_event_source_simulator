@@ -12,25 +12,22 @@
 
 @end
 
-const int key_down[] = {0xa00, 0xa};
-const int key_up[] = {0xb00, 0xb};
-
-// #define KEY_DOWN {0xa00, 0xa}
-// #define KEY_UP {0xb00, 0xb}
+static const size_t key_down_up[][2] = {
+    {0xa00, 0xa},  // Down
+    {0xb00, 0xb}   // Up
+};
 
 
 void dkess_press_key(int key, NSEventModifierFlags modifier_flags) {
-    const int flags[2][2] = {key_down, key_up};
-
     for (int i = 0; i < 2; i++) {
         NSEvent *event = [NSEvent otherEventWithType:NSSystemDefined
                            location:NSZeroPoint
-                      modifierFlags:flags[i][0]
+                      modifierFlags:key_down_up[i][0]
                           timestamp:0.0
                        windowNumber:0
                             context:nil
                             subtype:NSScreenChangedEventType
-                              data1:(NX_KEYTYPE_PLAY << 16) | (flags[i][1] << 8)
+                              data1:(NX_KEYTYPE_PLAY << 16) | (key_down_up[i][1] << 8)
                               data2:-1];
 
         CGEventRef cg_event = [event CGEvent];
