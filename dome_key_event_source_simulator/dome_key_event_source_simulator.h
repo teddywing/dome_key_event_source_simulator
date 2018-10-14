@@ -6,6 +6,9 @@
 //  Copyright © 2018 tw. All rights reserved.
 //
 
+#ifndef DOME_KEY_EVENT_SOURCE_SIMULATOR_H
+#define DOME_KEY_EVENT_SOURCE_SIMULATOR_H
+
 #import <Cocoa/Cocoa.h>
 
 @interface dome_key_event_source_simulator : NSObject
@@ -14,3 +17,5 @@
 
 
 void dkess_press_key(int key, NSEventModifierFlags modifier_flags);
+
+#endif /* DOME_KEY_EVENT_SOURCE_SIMULATOR_H */
