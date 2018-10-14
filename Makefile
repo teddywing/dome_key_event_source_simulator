@@ -1,7 +1,10 @@
+SOURCES := dome_key_event_source_simulator/*
 LIB_DEBUG := ~/Library/Developer/Xcode/DerivedData/dome_key_event_source_simulator-*/Build/Products/Debug/libdome_key_event_source_simulator.a
 
 .PHONY: build
-build:
+build: $(LIB_DEBUG)
+
+$(LIB_DEBUG): $(SOURCES)
 	xcodebuild -scheme dome_key_event_source_simulator -configuration Debug
 
 test: test.c $(LIB_DEBUG)
