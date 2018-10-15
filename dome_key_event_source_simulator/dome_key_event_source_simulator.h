@@ -9,7 +9,8 @@
 #ifndef DOME_KEY_EVENT_SOURCE_SIMULATOR_H
 #define DOME_KEY_EVENT_SOURCE_SIMULATOR_H
 
-#import <Cocoa/Cocoa.h>
+#import <AppKit/AppKit.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 void dkess_press_key(int key, NSEventModifierFlags modifier_flags);
 
