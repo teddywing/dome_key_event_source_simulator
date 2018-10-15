@@ -36,6 +36,5 @@ void dkess_press_key(int key, NSEventModifierFlags modifier_flags) {
 
         CGEventRef cg_event = [event CGEvent];
         CGEventPost(kCGHIDEventTap, cg_event);
-        CFRelease(cg_event);
     }
 }
