@@ -63,7 +63,7 @@ static const size_t key_down_up[][2] = {
 };
 
 
-void dkess_press_key(int key, NSEventModifierFlags modifier_flags) {
+void dkess_press_key(int key, NSEVENT_MODIFIER_FLAGS modifier_flags) {
     for (int i = 0; i < 2; i++) {
         NSEvent *event = [NSEvent otherEventWithType:NSEVENT_TYPE_SYSTEM_DEFINED
             location:NSZeroPoint

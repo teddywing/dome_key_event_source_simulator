@@ -50,9 +50,15 @@
 #ifndef DOME_KEY_EVENT_SOURCE_SIMULATOR_H
 #define DOME_KEY_EVENT_SOURCE_SIMULATOR_H
 
+#ifdef AVAILABLE_MAC_OS_X_VERSION_10_10_AND_LATER
+    #define NSEVENT_MODIFIER_FLAGS NSEventModifierFlags
+#else
+    #define NSEVENT_MODIFIER_FLAGS NSUInteger
+#endif
+
 #import <AppKit/AppKit.h>
 #import <CoreGraphics/CoreGraphics.h>
 
-void dkess_press_key(int key, NSEventModifierFlags modifier_flags);
+void dkess_press_key(int key, NSEVENT_MODIFIER_FLAGS modifier_flags);
 
 #endif /* DOME_KEY_EVENT_SOURCE_SIMULATOR_H */
