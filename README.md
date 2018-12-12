@@ -20,8 +20,8 @@ The library is designed to work on Mac OS X 10.6 and later.
 
 
 ## License
-Copyright © 2018 Teddy Wing. This project is part of [DomeKey][2], and is
-published under the same license (see the included LICENSE file).
+Copyright © 2018 Teddy Wing. Licensed under the Mozilla Public License v. 2.0
+(see the included LICENSE file).
 
 
 [1]: https://opensource.apple.com/source/IOHIDFamily/IOHIDFamily-86.1/IOHIDSystem/IOKit/hidsystem/ev_keymap.h
